@@ -14,7 +14,6 @@ async def generate_short_url(long_url: Annotated[str, Body(embed=True)]):
     try:
         new_slug = await generate_url(long_url)
         return {"data": new_slug}
-
     except SlugAlreadyExistsError:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="There are no available codes for generating links.")
 
