@@ -4,3 +4,7 @@ class ShortenerException(Exception):
 
 class NotLongUrlFoundError(ShortenerException):
     pass
+
+
+class SlugAlreadyExistsError(ShortenerException):
+    pass
