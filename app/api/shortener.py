@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Depends, Path
+from fastapi import APIRouter, Depends, Path, Body
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from contextlib import asynccontextmanager
 from typing import Annotated
 
 
@@ -9,8 +10,8 @@ from typing import Annotated
 router = APIRouter()
 
 
-@router.post("/generate_url")
-async def generate_short_url():
+@router.post("/short_url")
+async def generate_short_url(long_url: Annotated[str, Body(embed=True)]):
     return ...
 
 
