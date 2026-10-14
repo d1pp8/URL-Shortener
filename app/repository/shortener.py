@@ -20,4 +20,4 @@ async def get_url(slug: str) -> str | None:
     async with async_session() as session:
         query = select(ShortURL).filter_by(slug=slug)
         result = await session.execute(query)
-        return  result.scalar_one_or_none()
+        return result.scalar_one_or_none()

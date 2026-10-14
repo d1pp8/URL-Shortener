@@ -1,6 +1,5 @@
 import string
 from secrets import choice
-
 from app.exception import NotLongUrlFoundError, SlugAlreadyExistsError
 from app.repository.shortener import add_slug_to_database, get_url
 
