@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Path, Body, status, HTTPException
+from fastapi import APIRouter, Path, Body, status, HTTPException
 from fastapi.responses import RedirectResponse
 from typing import Annotated
 from pydantic import HttpUrl
@@ -17,8 +17,6 @@ async def generate_short_url(long_url: Annotated[HttpUrl, Body(embed=True)]):
         return {"data": new_slug}
     except SlugAlreadyExistsError:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="There are no available codes for generating links.")
-
-
 
 
 @router.get("/{slug}")
